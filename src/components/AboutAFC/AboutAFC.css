@@ -1,0 +1,118 @@
+.about-afc {
+  background-color: var(--color-white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+  }
+}
+
+.about-image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+}
+
+.about-image-wrapper::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80%;
+  height: 80%;
+  background-color: var(--color-sage-light);
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.about-img {
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: 3rem;
+  left: -2rem;
+  background-color: var(--color-white);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.experience-badge .years {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.experience-badge .text {
+  font-size: 0.875rem;
+  color: var(--color-gray-dark);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .experience-badge {
+    left: 1rem;
+    bottom: 3rem;
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-description {
+  color: var(--color-gray-dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.about-list {
+  margin-top: 2rem;
+}
+
+.about-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: var(--color-navy);
+}
+
+.list-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-sage);
+  color: var(--color-white);
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
