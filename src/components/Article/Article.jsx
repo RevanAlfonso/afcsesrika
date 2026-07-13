@@ -2,7 +2,7 @@ import React from 'react';
 import './Article.css';
 import { articlesData } from '../../data/articles';
 
-const Article = ({ onArticleClick }) => {
+const Article = () => {
   return (
     <section className="section article-section section-bg-gray" id="artikel">
       <div className="container">
@@ -21,9 +21,9 @@ const Article = ({ onArticleClick }) => {
                 <span className="article-date">{article.date}</span>
                 <h3 className="article-title">{article.title}</h3>
                 <p className="article-excerpt">{article.excerpt}</p>
-                <button onClick={() => onArticleClick(article)} className="article-readmore" style={{background: 'none', border: 'none', cursor: 'pointer', padding: 0, outline: 'none'}}>
+                <a href={`#article/${article.id}`} className="article-readmore">
                   Baca Selengkapnya <i className="fa-solid fa-arrow-right"></i>
-                </button>
+                </a>
               </div>
             </article>
           ))}

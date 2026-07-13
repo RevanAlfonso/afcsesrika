@@ -15,9 +15,32 @@ import Footer from './components/Footer/Footer';
 import Article from './components/Article/Article';
 import ArticleDetail from './components/ArticleDetail/ArticleDetail';
 import { useState, useEffect } from 'react';
+import { articlesData } from './data/articles';
 
 function App() {
   const [activeArticle, setActiveArticle] = useState(null);
+
+  // Hash-based routing
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#article/')) {
+        const id = parseInt(hash.replace('#article/', ''), 10);
+        const article = articlesData.find(a => a.id === id);
+        if (article) {
+          setActiveArticle(article);
+          return;
+        }
+      }
+      setActiveArticle(null);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange(); // check on mount
+
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   // Intersection Observer for scroll animations
   useEffect(() => {
     const observerOptions = {
@@ -50,10 +73,10 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar onNavigateHome={() => setActiveArticle(null)} />
+      <Navbar />
       <main>
         {activeArticle ? (
-          <ArticleDetail article={activeArticle} onBack={() => setActiveArticle(null)} />
+          <ArticleDetail article={activeArticle} />
         ) : (
           <>
             <Hero />
@@ -65,7 +88,7 @@ function App() {
             <Science />
             <Testimonials />
             <Gallery />
-            <Article onArticleClick={(article) => setActiveArticle(article)} />
+            <Article />
             <AboutDistributor />
             <FAQ />
           </>

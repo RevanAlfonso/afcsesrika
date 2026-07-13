@@ -21,7 +21,7 @@ const AboutDistributor = () => {
             </p>
             
             <div className="distributor-actions">
-              <a href="https://wa.me/YOUR_NUMBER" target="_blank" rel="noopener noreferrer" className="btn btn-primary whatsapp-btn">
+              <a href="https://wa.me/6285373446888" target="_blank" rel="noopener noreferrer" className="btn btn-primary whatsapp-btn">
                 <span className="wa-icon"><i className="fa-brands fa-whatsapp"></i></span> Chat di WhatsApp
               </a>
               <span className="consultation-note">Tersedia konsultasi pribadi gratis</span>

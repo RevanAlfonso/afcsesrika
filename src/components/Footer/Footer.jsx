@@ -37,7 +37,7 @@ const Footer = () => {
             <p><strong>Jam Operasional:</strong></p>
             <p>Senin - Jumat: 09:00 - 18:00</p>
             <p>Sabtu: 10:00 - 16:00</p>
-            <a href="https://wa.me/YOUR_NUMBER" target="_blank" rel="noopener noreferrer" className="btn btn-primary footer-btn">
+            <a href="https://wa.me/6285373446888" target="_blank" rel="noopener noreferrer" className="btn btn-primary footer-btn">
               Konsultasi Sekarang
             </a>
           </div>

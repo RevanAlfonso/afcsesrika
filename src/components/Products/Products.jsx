@@ -10,7 +10,7 @@ const Products = () => {
       id: 1,
       name: "SOP Subarashi",
       description: "Inovasi triple peptide yang menggabungkan Marine Placenta, Sardine Peptide, dan Fruitflow.",
-      ingredients: ["Marine Placenta", "Sardine Peptide", "Fruitflow", "L-Glutathione"],
+      ingredients: ["Marine Placenta", "Sardine Peptide", "Fruitflow", "L-Glutathione", "Salmon Caviar"],
       image: subarashi
     },
     {

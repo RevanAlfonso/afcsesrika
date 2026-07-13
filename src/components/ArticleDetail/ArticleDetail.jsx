@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './ArticleDetail.css';
 
-const ArticleDetail = ({ article, onBack }) => {
+const ArticleDetail = ({ article }) => {
   // Scroll to top when article loads
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -13,8 +13,17 @@ const ArticleDetail = ({ article, onBack }) => {
     <article className="article-detail-page animate-fade-up">
       <div className="container article-detail-container">
         
-        <button onClick={onBack} className="back-button">
-          <i className="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+        <button 
+          onClick={() => {
+            window.location.hash = '#artikel';
+            setTimeout(() => {
+              const el = document.getElementById('artikel');
+              if(el) el.scrollIntoView({behavior: 'smooth'});
+            }, 100);
+          }} 
+          className="back-button"
+        >
+          <i className="fa-solid fa-arrow-left"></i> Kembali ke Artikel
         </button>
 
         <header className="article-header">
