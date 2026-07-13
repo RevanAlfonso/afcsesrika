@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import AboutAFC from './components/AboutAFC/AboutAFC';
@@ -12,8 +12,12 @@ import Gallery from './components/Gallery/Gallery';
 import AboutDistributor from './components/AboutDistributor/AboutDistributor';
 import FAQ from './components/FAQ/FAQ';
 import Footer from './components/Footer/Footer';
+import Article from './components/Article/Article';
+import ArticleDetail from './components/ArticleDetail/ArticleDetail';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [activeArticle, setActiveArticle] = useState(null);
   // Intersection Observer for scroll animations
   useEffect(() => {
     const observerOptions = {
@@ -42,22 +46,31 @@ function App() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [activeArticle]); // Re-run when view changes
 
   return (
     <div className="app">
-      <Navbar />
-      <Hero />
-      <AboutAFC />
-      <Features />
-      <Products />
-      <Education />
-      <Ingredients />
-      <Science />
-      <Testimonials />
-      <Gallery />
-      <AboutDistributor />
-      <FAQ />
+      <Navbar onNavigateHome={() => setActiveArticle(null)} />
+      <main>
+        {activeArticle ? (
+          <ArticleDetail article={activeArticle} onBack={() => setActiveArticle(null)} />
+        ) : (
+          <>
+            <Hero />
+            <AboutAFC />
+            <Features />
+            <Products />
+            <Education />
+            <Ingredients />
+            <Science />
+            <Testimonials />
+            <Gallery />
+            <Article onArticleClick={(article) => setActiveArticle(article)} />
+            <AboutDistributor />
+            <FAQ />
+          </>
+        )}
+      </main>
       <Footer />
     </div>
   );
